@@ -9,7 +9,7 @@ Box::Box(float x, float y) {
 }
 
 void Box::drawBox() const {
-	if (color == 0)
+	if (color == WHITE)
 		glColor3f(1, 1, 1);
 	else
 		glColor3f(1, 0, 0);
