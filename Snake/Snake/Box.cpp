@@ -2,7 +2,7 @@
 
 Box::Box() {
 	setPos(0, 0);
-	color = 0;
+	color = WHITE;
 }
 Box::Box(float x, float y) {
 	setPos(x, y);
@@ -13,13 +13,14 @@ void Box::drawBox() const {
 		glColor3f(1, 1, 1);
 	else
 		glColor3f(1, 0, 0);
+
 	glBegin(GL_QUADS);
 	glVertex2f(pos[0], pos[1]); glVertex2f(pos[0], pos[1]+1);
 	glVertex2f(pos[0]+1, pos[1]+1); glVertex2f(pos[0]+1, pos[1]);
 	glEnd();
 }
 
-void Box::setColor(int col) {
+void Box::setColor(Color col) {
 	color = col;
 }
 

@@ -2,6 +2,8 @@
 #include <GL/glut.h>
 #include <iostream>
 
+enum Color{WHITE = 0, RED = 1};
+
 class Box
 {
 public:
@@ -10,7 +12,7 @@ public:
 
 	void drawBox() const;
 
-	void setColor(int col);
+	void setColor(Color col);
 
 	void setPos(const float x, const float y);
 	float getPosX();
@@ -18,6 +20,6 @@ public:
 
 private:
 	float pos[2];
-	int color;
+	Color color;
 };
 

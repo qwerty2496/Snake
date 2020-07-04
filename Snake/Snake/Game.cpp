@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() {
-	Item.setColor(1);
+	Item.setColor(RED);
 	Item.setPos(0, 0);
 }
 
@@ -17,4 +17,9 @@ void Game::genItem() {
 	float y = dis(gen);
 
 	Item.setPos(x, y);
+}
+
+void Game::draw() {
+	Item.drawBox();
+	snake.drawSnake();
 }
