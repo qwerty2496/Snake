@@ -1,7 +1,7 @@
 #include "Game.h"
 
-#define BoundaryX = 40
-#define BoundaryY = 40
+const int BoundaryX = 40;
+const int BoundaryY = 40;
 
 Game game;
 
@@ -25,7 +25,7 @@ void processSpecialKeys(int key, int x, int y) {
 void renderScene(void) {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
-	gluOrtho2D();
+	gluOrtho2D(0, BoundaryX, 0, BoundaryY);
 
 	game.Run();
 
