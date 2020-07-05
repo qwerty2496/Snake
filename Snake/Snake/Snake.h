@@ -13,6 +13,7 @@ public:
 
 	void setDir(direction dir_);
 	int getDir();
+	std::vector<Box> getBody();//isEat 만드려면 snake의 body를 get해야됨.
 
 private:
 	std::vector<Box> body;
