@@ -1,5 +1,7 @@
 #include "Box.h"
-
+/*
+동기화 확인 이유제
+*/
 Box::Box() {
 	setPos(0, 0);
 	color = WHITE;
