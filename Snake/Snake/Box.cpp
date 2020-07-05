@@ -1,5 +1,5 @@
 #include "Box.h"
-
+//
 Box::Box() {
 	setPos(0, 0);
 	color = WHITE;
