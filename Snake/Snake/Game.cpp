@@ -32,13 +32,9 @@ void Game::genItem() {
 bool Game::isEat() {
 	//유제 파트 - 머리 좌표와 먹이 좌표의 겹칩 여부
 	if (snake.getBody()[0].getPosX()==Item.getPosX() && snake.getBody()[0].getPosY()==Item.getPosY())
-	{
 		return true;
-	}
 	else
-	{
 		return false;
-	}
 }
 bool Game::isDie() {
 	/*동헌 파트 
