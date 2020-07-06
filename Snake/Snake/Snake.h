@@ -1,6 +1,6 @@
 #pragma once
 #include "Box.h"
-#include <vector>
+#include <list>
 
 enum direction { up = 0, down = 1, left = 2, right = 3 };
 
@@ -13,10 +13,10 @@ public:
 
 	void setDir(direction dir_);
 	int getDir();
-	std::vector<Box> getBody();//isEat 만드려면 snake의 body를 get해야됨.
+	std::list<Box> getBody();//isEat 만드려면 snake의 body를 get해야됨.
 
 private:
-	std::vector<Box> body;
+	std::list<Box> body;
 	direction dir;
 };
 
