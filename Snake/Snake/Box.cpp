@@ -4,6 +4,7 @@ Box::Box() {
 	setPos(0, 0);
 	color = WHITE;
 }
+
 Box::Box(float x, float y) {
 	setPos(x, y);
 }

@@ -37,15 +37,22 @@ bool Game::isEat() {
 		return false;
 }
 bool Game::isDie() {
-	/*동헌 파트 
-	1.머리가 몸통에 부딪힘 여부
-		-snake의 이동방향 (dir) 고려할 것
-	2. 머리가 벽에 부딪힘 여부
-		-맵 꼭짓점 좌표: (0,0), (0,40), (40,40), (40,0)
-
-		클래스 헤더 파일에 boundaryX, boundaryY를 정의하면 편할 거 같은데
-		소스 파일에 정의한 것과 충돌하는지 잘 모르겠다
+	/*
+		동헌 파트 
 	*/
+	
+	float hX = body.front().getPosX();
+	float hY = body.front().getPosY();
+	std::list<Box>::iterator it = body.begin();
+	it++;
+
+	if (hX == 0 || hX == 40 || hY == 0 || hY == 40) return true;
+
+	for (it; it != body.end(); it++)
+		if ((*it).getPosX == hX && (*it).getPosY == hY) return true;
+	
+	return false;
+	
 }
 
 Snake Game::getSnake() {

@@ -2,6 +2,10 @@
 
 Snake::Snake() {
 	//동헌 파트-초기 길이 3, 초기 머리 좌표 (20, 20), 방향은 임의로 정하세요
+	body.push_back(Box(20.0, 20.0));
+	body.push_back(Box(20.0, 19.0));
+	body.push_back(Box(20.0, 18.0));
+	setDir(up);
 }
 
 std::list<Box> Snake::getBody() {
