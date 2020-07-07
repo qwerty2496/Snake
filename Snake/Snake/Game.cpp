@@ -41,15 +41,15 @@ bool Game::isDie() {
 		µ¿Çå ÆÄÆ® 
 	*/
 	
-	float hX = body.front().getPosX();
-	float hY = body.front().getPosY();
-	std::list<Box>::iterator it = body.begin();
+	float hX = snake.getBody().front().getPosX();
+	float hY = snake.getBody().front().getPosY();
+	std::list<Box>::iterator it = snake.getBody().begin();
 	it++;
 
 	if (hX == 0 || hX == 40 || hY == 0 || hY == 40) return true;
 
-	for (it; it != body.end(); it++)
-		if ((*it).getPosX == hX && (*it).getPosY == hY) return true;
+	for (it; it != snake.getBody().end(); it++)
+		if ((*it).getPosX() == hX && (*it).getPosY() == hY) return true;
 	
 	return false;
 	
