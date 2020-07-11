@@ -1,6 +1,6 @@
 #pragma once
-#include <GL/glut.h>
 #include <iostream>
+#include <GL/glut.h>
 
 enum Color{WHITE = 0, RED = 1};
 

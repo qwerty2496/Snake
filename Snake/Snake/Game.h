@@ -11,12 +11,12 @@ public:
 
 	void genItem(); 
 
-	bool Run();
+	void Run();
 	void draw();
 
 	bool isEat(); 
 	void checkDie();
-	bool isDie() { return die; }
+	bool getDie();
 
 	Snake getSnake();
 
