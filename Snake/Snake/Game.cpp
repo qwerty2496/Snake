@@ -3,6 +3,7 @@
 Game::Game() {
 	Item.setColor(RED);
 	die = false;
+	genItem();
 }
 
 bool Game::Run() {
@@ -32,9 +33,9 @@ void Game::genItem() {
 		int a = 0;
 		x = rand() % 40;
 		y = rand() % 40;
-
-		std::list<Box>::iterator it = snake.getBody().begin();
-		for (it; it != snake.getBody().end(); it++) {
+		std::list<Box> bod = snake.getBody();
+		std::list<Box>::iterator it = bod.begin();
+		for (it; it != bod.end(); ++it) {
 			if ((*it).getPosX() == x && (*it).getPosY() == y) {
 				int a = 1;
 				break;
@@ -57,7 +58,8 @@ void Game::checkDie() {
 	
 	float hX = snake.getBody().front().getPosX();
 	float hY = snake.getBody().front().getPosY();
-	std::list<Box>::iterator it = snake.getBody().begin();
+	std::list<Box> bd = snake.getBody();
+	std::list<Box>::iterator it = bd.begin();
 	it++;
 
 	if (hX == 0 || hX == 40 || hY == 0 || hY == 40) {
@@ -65,7 +67,7 @@ void Game::checkDie() {
 		return;
 	}
 
-	for (it; it != snake.getBody().end(); it++) {
+	for (it; it != bd.end(); ++it) {
 		if ((*it).getPosX() == hX && (*it).getPosY() == hY) {
 			die = true;
 			return;

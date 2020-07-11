@@ -26,7 +26,8 @@ void renderScene(void) {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	gluOrtho2D(0, BoundaryX, 0, BoundaryY);
-	if (!game.Run()) Game game;
+	if (!game.Run()) 
+		Game game;
 	
 
 	glutSwapBuffers();
@@ -35,11 +36,11 @@ void renderScene(void) {
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowPosition(100, 100);
+	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(640, 640);
 	glutCreateWindow("Snake");
 	glutDisplayFunc(renderScene);
-
+	glutIdleFunc(renderScene);
 	glutSpecialFunc(processSpecialKeys);
 	
 	glutMainLoop();
