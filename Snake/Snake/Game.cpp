@@ -13,7 +13,6 @@ bool Game::Run() {
 		snake.incSnake();
 	}
 	draw();
-	glutPostRedisplay();
 	snake.moveSnake();
 	return true;
 }
