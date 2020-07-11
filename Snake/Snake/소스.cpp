@@ -26,8 +26,8 @@ void renderScene(void) {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	gluOrtho2D(0, BoundaryX, 0, BoundaryY);
-
-	game.Run();
+	if (!game.Run()) Game game;
+	
 
 	glutSwapBuffers();
 }
@@ -38,8 +38,8 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(640, 640);
 	glutCreateWindow("Snake");
-	// Game() 필요한거 아니누?
 	glutDisplayFunc(renderScene);
+
 	glutSpecialFunc(processSpecialKeys);
 	
 	glutMainLoop();

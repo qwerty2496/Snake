@@ -2,7 +2,6 @@
 
 Game::Game() {
 	Item.setColor(RED);
-	Snake();
 	die = false;
 }
 
@@ -11,11 +10,11 @@ bool Game::Run() {
 	if (isDie()) return false;
 	if (isEat()) {
 		genItem();
-		getSnake().incSnake();
+		snake.incSnake();
 	}
 	draw();
 	glutPostRedisplay();
-	getSnake().moveSnake();
+	snake.moveSnake();
 	return true;
 }
 
@@ -28,17 +27,12 @@ void Game::genItem() {
 	
 	float x;
 	float y;
+	
 	while (true) {
+		srand(time(0));
 		int a = 0;
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<int> dis(0, 40);
-		x = dis(gen);
-
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<int> dis(0, 40);
-		y = dis(gen);
+		x = rand() % 40;
+		y = rand() % 40;
 
 		std::list<Box>::iterator it = snake.getBody().begin();
 		for (it; it != snake.getBody().end(); it++) {
@@ -72,11 +66,12 @@ void Game::checkDie() {
 		return;
 	}
 
-	for (it; it != snake.getBody().end(); it++)
+	for (it; it != snake.getBody().end(); it++) {
 		if ((*it).getPosX() == hX && (*it).getPosY() == hY) {
 			die = true;
 			return;
 		}
+	}
 }
 
 Snake Game::getSnake() {

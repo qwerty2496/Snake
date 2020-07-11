@@ -1,6 +1,8 @@
 #pragma once
 #include "Box.h"
 #include "Snake.h"
+#include <ctime>
+#include <cstdlib>
 #include <random>
 #include <algorithm>
 

@@ -26,7 +26,7 @@ void Box::setColor(Color col) {
 }
 
 
-void Box::setPos(const float x, const float y) {
+void Box::setPos( float x,  float y) {
 	pos[0] = x;
 	pos[1] = y;
 }
