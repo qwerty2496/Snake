@@ -9,18 +9,20 @@ class Game
 public:
 	Game();
 
-	void genItem(); //jy
+	void genItem(); 
 
-	void Run(); //jy
+	bool Run();
 	void draw();
 
-	bool isEat(); //yj
-	bool isDie(); //dh
+	bool isEat(); 
+	void checkDie();
+	bool isDie() { return die; }
 
 	Snake getSnake();
 
 private:
 	Box Item;
 	Snake snake;
+	bool die;
 };
 

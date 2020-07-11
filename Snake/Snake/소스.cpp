@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(640, 640);
 	glutCreateWindow("Snake");
-
+	// Game() 필요한거 아니누?
 	glutDisplayFunc(renderScene);
 	glutSpecialFunc(processSpecialKeys);
 	
