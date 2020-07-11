@@ -10,7 +10,7 @@ public:
 	Snake();
 	void drawSnake();
 	void moveSnake(); 
-	void incSnake();
+	//void incSnake();
 	void setDir(direction dir_);
 	int getDir();
 	std::list<Box> getBody();

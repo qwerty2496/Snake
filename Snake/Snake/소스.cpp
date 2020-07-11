@@ -4,6 +4,8 @@ const int BoundaryX = 40;
 const int BoundaryY = 40;
 
 Game game;
+clock_t start = clock();
+clock_t end;
 
 void processSpecialKeys(int key, int x, int y) {
 	switch (key) {
@@ -21,13 +23,21 @@ void processSpecialKeys(int key, int x, int y) {
 		break;
 	}
 }
+void idle() {
+	end = clock();
+	if (end - start > ) {
+		game.Run();
+		start = end;
+	}
+	glutPostRedisplay();
+}
 
 void renderScene(void) {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	gluOrtho2D(0, BoundaryX, 0, BoundaryY);
 
-	game.Run();
+	game.draw();
 
 	glutSwapBuffers();
 }
@@ -41,7 +51,7 @@ int main(int argc, char** argv) {
 
 	//callback
 	glutDisplayFunc(renderScene);
-	glutIdleFunc(renderScene);
+	glutIdleFunc(idle);
 	glutSpecialFunc(processSpecialKeys);
 	
 	glutMainLoop();

@@ -7,6 +7,7 @@ Box::Box() {
 
 Box::Box(float x, float y) {
 	setPos(x, y);
+	color = WHITE;
 }
 
 void Box::drawBox() const {

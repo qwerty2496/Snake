@@ -1,8 +1,10 @@
 #pragma once
-#include "Box.h"
-#include "Snake.h"
 #include <random>
 #include <algorithm>
+#include <time.h>
+#include "Box.h"
+#include "Snake.h"
+
 
 class Game
 {
