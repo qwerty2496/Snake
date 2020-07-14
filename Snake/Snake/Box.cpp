@@ -2,15 +2,14 @@
 
 Box::Box() {
 	setPos(0, 0);
-	color = WHITE;
+	setColor(WHITE);
 }
-
 Box::Box(float x, float y) {
 	setPos(x, y);
-	color = WHITE;
+	setColor(WHITE);
 }
 
-void Box::drawBox() const {
+void Box::drawBox(){
 	if (color == WHITE)
 		glColor3f(1, 1, 1);
 	else
@@ -25,7 +24,6 @@ void Box::drawBox() const {
 void Box::setColor(Color col) {
 	color = col;
 }
-
 
 void Box::setPos(const float x, const float y) {
 	pos[0] = x;

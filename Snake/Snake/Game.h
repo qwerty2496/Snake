@@ -1,7 +1,6 @@
 #pragma once
 #include <random>
 #include <algorithm>
-#include <time.h>
 #include "Box.h"
 #include "Snake.h"
 
@@ -17,14 +16,12 @@ public:
 	void draw();
 
 	bool isEat(); 
-	void checkDie();
-	bool getDie();
+	bool isDie();
 
 	Snake getSnake();
 
 private:
 	Box Item;
 	Snake snake;
-	bool die;
 };
 
