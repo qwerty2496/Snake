@@ -6,7 +6,6 @@ Game::Game() {
 }
 
 void Game::Run() {
-	draw();
 	if (!isDie()) {
 		if (isEat()) {
 			Box tail(snake.getBody().back().getPosX(), snake.getBody().back().getPosX());
@@ -19,6 +18,7 @@ void Game::Run() {
 	}
 	else
 		Clear();
+	draw();
 }
 void Game::Clear() {
 	Snake newSnake;
