@@ -49,11 +49,6 @@ void renderScene(void) {
 	glutSwapBuffers();
 }
 
-void DoTimer(int value){
-	glutPostRedisplay();
-	glutTimerFunc(100, DoTimer, 0);
-}
-
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
@@ -63,7 +58,6 @@ int main(int argc, char** argv) {
 
 	//callback
 	glutDisplayFunc(renderScene);
-	glutTimerFunc(0, DoTimer, 0);
 	glutSpecialFunc(Arrowkeys);
 	
 	glutMainLoop();
