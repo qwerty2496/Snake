@@ -6,10 +6,9 @@ Game::Game() {
 }
 
 void Game::Run() {
-	draw();
 	if (!isDie()) {
 		if (isEat()) {
-			Box tail(snake.getBody().back().getPosX(), snake.getBody().back().getPosX());
+			Box tail(snake.getBody().back().getPosX(), snake.getBody().back().getPosY());
 			snake.moveSnake();
 			snake.getBody().push_back(tail);
 			genItem();
@@ -19,6 +18,7 @@ void Game::Run() {
 	}
 	else
 		Clear();
+	draw();
 }
 void Game::Clear() {
 	Snake newSnake;
@@ -30,11 +30,18 @@ void Game::draw(){
 	snake.drawSnake();
 	glColor3f(0, 0, 0);
 	glBegin(GL_LINES);
-
-	for (int i = 1; i < 42; i++){
+	for (int i = 2; i < 41; i++){
 		glVertex2f(1, i); glVertex2f(41, i);
 		glVertex2f(i, 1); glVertex2f(i, 41);
 	}
+	glEnd();
+	
+	glColor3f(0.5, 0.5, 0.5);
+	glBegin(GL_LINES);
+	glVertex2f(1, 1); glVertex2f(41, 1);
+	glVertex2f(1, 1); glVertex2f(1, 41);
+	glVertex2f(1, 41); glVertex2f(41, 41);
+	glVertex2f(41, 1); glVertex2f(41, 41);
 	glEnd();
 }
 
