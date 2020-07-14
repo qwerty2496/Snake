@@ -12,8 +12,10 @@ Box::Box(float x, float y) {
 void Box::drawBox(){
 	if (color == WHITE)
 		glColor3f(1, 1, 1);
-	else
+	else if (color == RED)
 		glColor3f(1, 0, 0);
+	else
+		glColor3f(0, 1, 0);
 
 	glBegin(GL_QUADS);
 	glVertex2f(pos[0], pos[1]); glVertex2f(pos[0], pos[1]+1);

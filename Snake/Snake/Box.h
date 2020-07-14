@@ -2,7 +2,7 @@
 #include <iostream>
 #include <GL/glut.h>
 
-enum Color{WHITE = 4 , RED = 5};
+enum Color{WHITE = 4 , RED = 5, GREEN = 6};
 
 class Box
 {

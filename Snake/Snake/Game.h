@@ -13,12 +13,13 @@ public:
 	void genItem(); 
 
 	void Run();
+	void Clear();
 	void draw();
 
 	bool isEat(); 
 	bool isDie();
 
-	Snake getSnake();
+	Snake& getSnake();
 
 private:
 	Box Item;

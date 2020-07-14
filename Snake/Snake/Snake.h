@@ -12,7 +12,7 @@ public:
 	void moveSnake(); 
 	void setDir(direction dir_);
 	int getDir();
-	std::list<Box> getBody();
+	std::list<Box>& getBody();
 
 private:
 	std::list<Box> body;

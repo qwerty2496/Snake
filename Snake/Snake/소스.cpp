@@ -24,7 +24,6 @@ void Arrowkeys(int key, int x, int y) {
 			game.getSnake().setDir(right);
 		break;
 	}
-	glutPostRedisplay();
 }
 
 void renderScene(void) {
@@ -37,15 +36,14 @@ void renderScene(void) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	game.draw();
+	game.Run();
 	
 	glutSwapBuffers();
-	game.Run();
 }
 
-void idle(int value){
+void DoTimer(int value){
 	glutPostRedisplay();
-	glutTimerFunc(500 , idle, 0);
+	glutTimerFunc(100, DoTimer, 0);
 }
 
 int main(int argc, char** argv) {
@@ -57,7 +55,7 @@ int main(int argc, char** argv) {
 
 	//callback
 	glutDisplayFunc(renderScene);
-	glutTimerFunc(0, idle, 0);
+	glutTimerFunc(0, DoTimer, 0);
 	glutSpecialFunc(Arrowkeys);
 	
 	glutMainLoop();

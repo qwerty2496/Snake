@@ -6,10 +6,10 @@ Game::Game() {
 }
 
 void Game::Run() {
-	//draw();
-	if(!isDie()){
+	draw();
+	if (!isDie()) {
 		if (isEat()) {
-			Box tail(snake.getBody().back());
+			Box tail(snake.getBody().back().getPosX(), snake.getBody().back().getPosX());
 			snake.moveSnake();
 			snake.getBody().push_back(tail);
 			genItem();
@@ -17,8 +17,14 @@ void Game::Run() {
 		else
 			snake.moveSnake();
 	}
+	else
+		Clear();
 }
-
+void Game::Clear() {
+	Snake newSnake;
+	snake = newSnake;
+	genItem();
+}
 void Game::draw(){
 	Item.drawBox();
 	snake.drawSnake();
@@ -35,13 +41,12 @@ void Game::genItem() {
 		int a = 0;
 		std::random_device rd;
 		std::mt19937 gen(rd());
-		std::uniform_int_distribution<int> dis(0, 39);
+		std::uniform_int_distribution<int> dis(1, 40);
 		x = dis(gen);
 		y = dis(gen);
 
-		std::list<Box> SB = snake.getBody();
-		std::list<Box>::iterator it = SB.begin();
-		for (it; it != SB.end(); it++) {
+		std::list<Box>::iterator it = snake.getBody().begin();
+		for (it; it != snake.getBody().end(); it++) {
 			if ((*it).getPosX() == x && (*it).getPosY() == y) {
 				int a = 1;
 				break;
@@ -62,14 +67,13 @@ bool Game::isEat() {
 bool Game::isDie() {
 	float hX = snake.getBody().front().getPosX();
 	float hY = snake.getBody().front().getPosY();
-	std::list<Box> SB = snake.getBody();
-	std::list<Box>::iterator it = SB.begin();
+	std::list<Box>::iterator it = snake.getBody().begin();
 	it++;
 
-	if (hX == 0 || hX == 41 || hY == 1 || hY == 40) {
+	if (hX == 0 || hX == 41 || hY == 0 || hY == 41) {
 		return true;
 	}
-	for (it; it != SB.end(); it++) {
+	for (it; it != snake.getBody().end(); it++) {
 		if ((*it).getPosX() == hX && (*it).getPosY() == hY) {
 			return true;
 		}
@@ -77,6 +81,6 @@ bool Game::isDie() {
 	return false;
 }
 
-Snake Game::getSnake() {
+Snake& Game::getSnake() {
 	return snake;
 }

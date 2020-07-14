@@ -4,10 +4,11 @@ Snake::Snake(){
 	body.push_back(Box(20, 20));
 	body.push_back(Box(20, 19));
 	body.push_back(Box(20, 18));
+	body.front().setColor(GREEN);
 	setDir(up);
 }
 
-std::list<Box> Snake::getBody() {
+std::list<Box>& Snake::getBody() {
 	return body;
 }
 void Snake::setDir(direction dir_) {
@@ -24,6 +25,7 @@ void Snake::drawSnake() {
 void Snake::moveSnake() {
 	float tempPosX = body.front().getPosX();
 	float tempPosY = body.front().getPosY();
+	body.front().setColor(WHITE);
 	if (dir == up)
 		body.push_front(Box(tempPosX, tempPosY + 1));
 	else if (dir == down)
@@ -32,5 +34,6 @@ void Snake::moveSnake() {
 		body.push_front(Box(tempPosX - 1, tempPosY));
 	else
 		body.push_front(Box(tempPosX + 1, tempPosY));
+	body.front().setColor(GREEN);
 	body.pop_back();
 }
