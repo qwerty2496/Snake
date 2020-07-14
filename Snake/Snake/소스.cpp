@@ -8,20 +8,28 @@ Game game;
 void Arrowkeys(int key, int x, int y) {
 	switch (key) {
 	case GLUT_KEY_UP:
-		if (game.getSnake().getDir() != down)
+		if (game.getSnake().getDir() != down) {
 			game.getSnake().setDir(up);
+			glutPostRedisplay();
+		}
 		break;
 	case GLUT_KEY_DOWN:
-		if (game.getSnake().getDir() != up)
+		if (game.getSnake().getDir() != up) {
 			game.getSnake().setDir(down);
+			glutPostRedisplay();
+		}
 		break;
 	case GLUT_KEY_LEFT:
-		if (game.getSnake().getDir() != right)
+		if (game.getSnake().getDir() != right) {
 			game.getSnake().setDir(left);
+			glutPostRedisplay();
+		}
 		break;
 	case GLUT_KEY_RIGHT:
-		if (game.getSnake().getDir() != left)
+		if (game.getSnake().getDir() != left) {
 			game.getSnake().setDir(right);
+			glutPostRedisplay();
+		}
 		break;
 	}
 }

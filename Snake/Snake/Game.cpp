@@ -28,10 +28,14 @@ void Game::Clear() {
 void Game::draw(){
 	Item.drawBox();
 	snake.drawSnake();
-	/*
-	glColor3f(1, 1, 1);
-	glBegin(GL_LINE);
-	*/
+	glColor3f(0, 0, 0);
+	glBegin(GL_LINES);
+
+	for (int i = 1; i < 42; i++){
+		glVertex2f(1, i); glVertex2f(41, i);
+		glVertex2f(i, 1); glVertex2f(i, 41);
+	}
+	glEnd();
 }
 
 void Game::genItem() {
