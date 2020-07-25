@@ -18,6 +18,7 @@ public:
 
 	bool isEat(); 
 	bool isDie();
+	void move(direction dir_);
 
 	Snake& getSnake();
 

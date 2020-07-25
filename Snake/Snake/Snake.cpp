@@ -6,6 +6,7 @@ Snake::Snake(){
 	body.push_back(Box(20, 18));
 	body.front().setColor(GREEN);
 	setDir(up);
+	setMove(200);
 }
 
 std::list<Box>& Snake::getBody() {
@@ -17,6 +18,15 @@ void Snake::setDir(direction dir_) {
 int Snake::getDir() {
 	return dir;
 } 
+void Snake::setMove(int m) {
+	move = m;
+}
+int Snake::getMove() {
+	return move;
+}
+int Snake::getAmount() {
+	return body.size() - 3;
+}
 
 void Snake::drawSnake() {
 	for (auto& box : body)
@@ -36,4 +46,7 @@ void Snake::moveSnake() {
 		body.push_front(Box(tempPosX + 1, tempPosY));
 	body.front().setColor(GREEN);
 	body.pop_back();
+
+	move -= 1;
 }
+

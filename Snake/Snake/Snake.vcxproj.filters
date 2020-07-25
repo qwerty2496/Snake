@@ -24,6 +24,9 @@
     <ClInclude Include="Snake.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="SnakeAI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -36,6 +39,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="소스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeAI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

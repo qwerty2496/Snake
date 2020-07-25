@@ -10,12 +10,18 @@ public:
 	Snake();
 	void drawSnake();
 	void moveSnake(); 
+
 	void setDir(direction dir_);
 	int getDir();
 	std::list<Box>& getBody();
 
+	int getAmount();
+	void setMove(int m);
+	int getMove();
+
 private:
 	std::list<Box> body;
 	direction dir;
+	int move;
 };
 

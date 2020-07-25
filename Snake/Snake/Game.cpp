@@ -58,23 +58,28 @@ void Game::genItem() {
 
 		std::list<Box>::iterator it = snake.getBody().begin();
 		for (it; it != snake.getBody().end(); it++) {
-			if ((*it).getPosX() == x && (*it).getPosY() == y) {
-				int a = 1;
+			if (((*it).getPosX() == x) && ((*it).getPosY() == y)) {
+				a = 1;
 				break;
 			}
 		}
-		if (a == 0) break;
+		if (a == 0) 
+			break;
 	}
 	Item.setPos(x, y);
 }
 
 bool Game::isEat() {
-	if (snake.getBody().front().getPosX() == Item.getPosX() && snake.getBody().front().getPosY() == Item.getPosY())
+	if (snake.getBody().front().getPosX() == Item.getPosX() && snake.getBody().front().getPosY() == Item.getPosY()) {
+		if (snake.getMove() <= 400)
+			snake.setMove(snake.getMove() + 100);
+		else
+			snake.setMove(500);
 		return true;
+	}
 	else
 		return false;
 }
-
 bool Game::isDie() {
 	float hX = snake.getBody().front().getPosX();
 	float hY = snake.getBody().front().getPosY();
@@ -90,6 +95,34 @@ bool Game::isDie() {
 		}
 	}
 	return false;
+}
+void Game::move(direction dir_) {
+	switch (dir_) {
+	case up:
+		if (snake.getDir() != down) {
+			snake.setDir(up);
+			glutPostRedisplay();
+		}
+		break;
+	case down:
+		if (snake.getDir() != up) {
+			snake.setDir(down);
+			glutPostRedisplay();
+		}
+		break;
+	case left:
+		if (snake.getDir() != right) {
+			snake.setDir(left);
+			glutPostRedisplay();
+		}
+		break;
+	case right:
+		if (snake.getDir() != left) {
+			snake.setDir(right);
+			glutPostRedisplay();
+		}
+		break;
+	}
 }
 
 Snake& Game::getSnake() {
